@@ -1,0 +1,25 @@
+# Filterbank config
+filterbank:
+  nfft: 512
+  kernel_size: 400
+  stride: 100
+masknet:
+  architecture: GTCRN
+data:
+  task: enh_single
+  clean_folder: /data0/zhanghaoyi/gtcrn/SEtrain/train/data/clean_trainset_28spk_wav_16k/
+  noisy_folder: /data0/zhanghaoyi/gtcrn/SEtrain/train/data/noisy_trainset_28spk_wav_16k/
+  sample_rate: 16000
+  n_src: 1
+  segment: 4
+training:
+  epochs: 200
+  batch_size: 4
+  num_workers: 1
+  half_lr: yes
+  early_stop: yes
+  gradient_clipping: 5
+optim:
+  optimizer: adam
+  lr: 0.001
+  weight_decay: !!float 1e-5
